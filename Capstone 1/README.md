@@ -100,9 +100,3 @@ Available operations:
 
 This is a beginner-friendly open-source project! Feel free to improve the code, suggest features, or report bugs by submitting an issue or contacting the author at \[your\_email\_here].
 
----
-
-## License
-
-This project is licensed under the MIT License. Feel free to use, distribute, and modify it with attribution.
-
