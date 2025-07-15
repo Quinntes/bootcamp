@@ -98,5 +98,5 @@ Available operations:
 
 ## Contribution
 
-This is a beginner-friendly open-source project! Feel free to improve the code, suggest features, or report bugs by submitting an issue or contacting the author at \[your\_email\_here].
+This is a beginner-friendly open-source project! Feel free to improve the code, suggest features, or report bugs by submitting an issue or contacting the author at ahmadlutfi2263@gmail.com.
 
