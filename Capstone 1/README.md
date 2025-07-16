@@ -1,5 +1,3 @@
-Tentu, ini *README* yang sudah direvisi dengan penambahan bagian **License** di bagian paling bawah.
-
 -----
 
 # Python CRUD Application for Veterinary Patient Management
