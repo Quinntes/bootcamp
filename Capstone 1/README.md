@@ -102,7 +102,7 @@ The program will display a main menu, and you can navigate through the available
 
 ## Contribution
 
-This is a beginner-friendly open-source project\! Feel free to improve the code, suggest features, or report bugs by submitting an issue or contacting the author at `ahmadlutfi2263@gmail.com`.
+This is a beginner-friendly open-source project! Feel free to improve the code, suggest features, or report bugs by **submitting an issue** or **creating a pull request**. Your contributions are welcome!
 
 -----
 
