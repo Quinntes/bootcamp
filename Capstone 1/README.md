@@ -1,3 +1,5 @@
+Tentu, ini *README* yang sudah direvisi dengan penambahan bagian **License** di bagian paling bawah.
+
 -----
 
 # Python CRUD Application for Veterinary Patient Management
@@ -106,4 +108,4 @@ This is a beginner-friendly open-source project\! Feel free to improve the code,
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE]([https://www.google.com/search?q=LICENSE](https://github.com/Quinntes/Bootcamp/blob/3f044767832a246c6555e5e3d90aa248919d4538/LICENSE)) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE](https://github.com/Quinntes/Bootcamp/blob/3f044767832a246c6555e5e3d90aa248919d4538/LICENSE) file for details.
