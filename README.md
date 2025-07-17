@@ -1,5 +1,3 @@
-Sure! Here's the **README** translated into professional and clean English for your GitHub repository:
-
 ---
 
 # 🧠 Data Science Bootcamp – Purwadhika
