@@ -31,12 +31,12 @@ Below is a summary of the topics covered throughout the bootcamp:
 
 ```
 📦 data-science-bootcamp
- ┣ 📂 module-1-python-fundamentals
- ┣ 📂 module-2-pandas-numpy
- ┣ 📂 module-3-visualization
- ┣ 📂 module-4-sql
- ┣ 📂 module-5-statistics
- ┣ 📂 module-6-machine-learning
+ ┣ 📂 module-1-programming-fundamental
+ ┣ 📂 module-2-data-analys
+ ┣ 📂 module-3-machine-learning
+ ┣ 📂 capstone 1
+ ┣ 📂 capstone 2
+ ┣ 📂 capstone 3
  ┣ 📂 final-project
  ┗ 📜 README.md
 ```
@@ -57,11 +57,6 @@ This repository is intended to:
 
 ## 📬 Contact
 
-Feel free to reach out for collaboration or discussion:
-
-* 📧 Email: `your.email@example.com` *(optional – feel free to replace)*
-* 💼 LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/yourusername)
+Feel free to reach out for collaboration or discussion
 
 ---
-
-Let me know if you want to add badges, GitHub Pages, or link this to your resume/portfolio!
