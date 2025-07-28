@@ -1,604 +1,605 @@
-# Program CRUD - Data Pasien Rumah Sakit Hewan 
+# CRUD Program - Animal Hospital Patient Data
 
 # ========================
-# Bagian 1: Data Awal & Tampilan Menu
+# Part 1: Initial Data & Menu Display
 # ========================
 
-Data_Pasien = [
-    {'ID Hewan': 'H001', 'Nama Hewan': 'Birong', 'Usia': 24, 'Jenis Hewan': 'Kucing', 'Jenis Kelamin': 'Betina', 'Diagnosis': 'Cacingan'},
-    {'ID Hewan': 'H002', 'Nama Hewan': 'Bagong', 'Usia': 60, 'Jenis Hewan': 'Anjing', 'Jenis Kelamin': 'Jantan', 'Diagnosis': 'Radang Tenggorokan'},
-    {'ID Hewan': 'H003', 'Nama Hewan': 'Cemong', 'Usia': 12, 'Jenis Hewan': 'Kucing', 'Jenis Kelamin': 'Jantan', 'Diagnosis': 'Cacingan'},
-    {'ID Hewan': 'H004', 'Nama Hewan': 'Dodo', 'Usia': 36, 'Jenis Hewan': 'Kucing', 'Jenis Kelamin': 'Jantan', 'Diagnosis': 'Luka Terbuka'},
-    {'ID Hewan': 'H005', 'Nama Hewan': 'Euis', 'Usia': 18, 'Jenis Hewan': 'Anjing', 'Jenis Kelamin': 'Betina', 'Diagnosis': 'Radang Tenggorokan'},
-    {'ID Hewan': 'H006', 'Nama Hewan': 'Fufu', 'Usia': 6, 'Jenis Hewan': 'Kelinci', 'Jenis Kelamin': 'Betina', 'Diagnosis': 'Gangguan Pencernaan'},
-    {'ID Hewan': 'H007', 'Nama Hewan': 'Gogo', 'Usia': 8, 'Jenis Hewan': 'Kelinci', 'Jenis Kelamin': 'Jantan', 'Diagnosis': 'Gangguan Pencernaan'},
-    {'ID Hewan': 'H008', 'Nama Hewan': 'Hera', 'Usia': 20, 'Jenis Hewan': 'Kucing', 'Jenis Kelamin': 'Betina', 'Diagnosis': 'Cacingan'},
-    {'ID Hewan': 'H009', 'Nama Hewan': 'Iro', 'Usia': 30, 'Jenis Hewan': 'Anjing', 'Jenis Kelamin': 'Jantan', 'Diagnosis': 'Kulit Gatal'},
-    {'ID Hewan': 'H010', 'Nama Hewan': 'Juju', 'Usia': 16, 'Jenis Hewan': 'Hamster', 'Jenis Kelamin': 'Betina', 'Diagnosis': 'Cacingan'},
-    {'ID Hewan': 'H011', 'Nama Hewan': 'Kiko', 'Usia': 10, 'Jenis Hewan': 'Hamster', 'Jenis Kelamin': 'Jantan', 'Diagnosis': 'Kulit Gatal'},
-    {'ID Hewan': 'H012', 'Nama Hewan': 'Lulu', 'Usia': 5, 'Jenis Hewan': 'Kelinci', 'Jenis Kelamin': 'Betina', 'Diagnosis': 'Cacingan'}
+patient_data = [
+    {'Animal_ID': 'H001', 'Animal_Name': 'Birong', 'Age': 24, 'Animal_Type': 'Cat', 'Gender': 'Female', 'Diagnosis': 'Worms'},
+    {'Animal_ID': 'H002', 'Animal_Name': 'Bagong', 'Age': 60, 'Animal_Type': 'Dog', 'Gender': 'Male', 'Diagnosis': 'Sore Throat'},
+    {'Animal_ID': 'H003', 'Animal_Name': 'Cemong', 'Age': 12, 'Animal_Type': 'Cat', 'Gender': 'Male', 'Diagnosis': 'Worms'},
+    {'Animal_ID': 'H004', 'Animal_Name': 'Dodo', 'Age': 36, 'Animal_Type': 'Cat', 'Gender': 'Male', 'Diagnosis': 'Open Wound'},
+    {'Animal_ID': 'H005', 'Animal_Name': 'Euis', 'Age': 18, 'Animal_Type': 'Dog', 'Gender': 'Female', 'Diagnosis': 'Sore Throat'},
+    {'Animal_ID': 'H006', 'Animal_Name': 'Fufu', 'Age': 6, 'Animal_Type': 'Rabbit', 'Gender': 'Female', 'Diagnosis': 'Digestive Issues'},
+    {'Animal_ID': 'H007', 'Animal_Name': 'Gogo', 'Age': 8, 'Animal_Type': 'Rabbit', 'Gender': 'Male', 'Diagnosis': 'Digestive Issues'},
+    {'Animal_ID': 'H008', 'Animal_Name': 'Hera', 'Age': 20, 'Animal_Type': 'Cat', 'Gender': 'Female', 'Diagnosis': 'Worms'},
+    {'Animal_ID': 'H009', 'Animal_Name': 'Iro', 'Age': 30, 'Animal_Type': 'Dog', 'Gender': 'Male', 'Diagnosis': 'Itchy Skin'},
+    {'Animal_ID': 'H010', 'Animal_Name': 'Juju', 'Age': 16, 'Animal_Type': 'Hamster', 'Gender': 'Female', 'Diagnosis': 'Worms'},
+    {'Animal_ID': 'H011', 'Animal_Name': 'Kiko', 'Age': 10, 'Animal_Type': 'Hamster', 'Gender': 'Male', 'Diagnosis': 'Itchy Skin'},
+    {'Animal_ID': 'H012', 'Animal_Name': 'Lulu', 'Age': 5, 'Animal_Type': 'Rabbit', 'Gender': 'Female', 'Diagnosis': 'Worms'}
 ]
 
-def Tampilkan_Menu():
+def display_menu():
     '''
-    Menampilkan pilihan menu utama CRUD.
-    Memudahkan pengguna untuk memilih fitur Report, Tambah, Ubah, Hapus, atau Keluar.
+    Displays the main CRUD menu options.
+    Allows the user to easily choose Report, Add, Update, Delete, or Exit features.
     '''
-    print('\n============= Data Pasien Rumah Sakit Hewan =============')
-    print('1. Report Data Hewan')
-    print('2. Menambahkan Data Hewan')
-    print('3. Mengubah Data Hewan')
-    print('4. Menghapus Data Hewan')
+    print('\n============= Animal Hospital Patient Data =============')
+    print('1. Report Animal Data')
+    print('2. Add Animal Data')
+    print('3. Update Animal Data')
+    print('4. Delete Animal Data')
     print('5. Exit')
 
 # ========================
-# Bagian 2: Fungsi-Fungsi Bantuan
+# Part 2: Helper Functions
 # ========================
 
-def Format_Usia_Tampil(total_bulan):
+def format_age_display(total_months):
     '''
-      Mengonversi total bulan usia menjadi format teks seperti:
-    - 8 bulan -> '8 bulan'
-    - 24 bulan -> '2 tahun'
-    - 27 bulan -> '2 tahun 3 bulan'
+      Converts total months of age into a text format like:
+    - 8 months -> '8 months'
+    - 24 months -> '2 years'
+    - 27 months -> '2 years 3 months'
     '''
-    if total_bulan < 0:
-        return 'Usia tidak valid'
-    if total_bulan < 12:
-        return f'{total_bulan} bulan'
+    if total_months < 0:
+        return 'Invalid age'
+    if total_months < 12:
+        return f'{total_months} months'
     else:
-        tahun = total_bulan // 12
-        bulan = total_bulan % 12
-        if bulan == 0:
-            return f'{tahun} tahun'
+        years = total_months // 12
+        months = total_months % 12
+        if months == 0:
+            return f'{years} years'
         else:
-            return f'{tahun} tahun {bulan} bulan'
+            return f'{years} years {months} months'
 
-def Tampilkan_Tabel(list_data):
+def display_table(data_list):
     '''
-    Menampilkan data hewan dalam format tabel dengan lebar kolom diagnosis.
+    Displays animal data in a table format with dynamic diagnosis column width.
     '''
-    if not list_data:
-        print('\n**** Tidak Ada Data Untuk Ditampilkan ****')
+    if not data_list:
+        print('\n**** No Data to Display ****')
         return False
     
-    # Menghitung lebar maksimum yang dibutuhkan untuk kolom diagnosis
-    lebar_diagnosis = len('Diagnosis') # Lebar minimum adalah judulnya sendiri
-    for hewan in list_data:
-        if len(hewan['Diagnosis']) > lebar_diagnosis:
-            lebar_diagnosis = len(hewan['Diagnosis'])
+    # Calculate the maximum width needed for the diagnosis column
+    diagnosis_width = len('Diagnosis') # Minimum width is the header itself
+    for animal in data_list:
+        if len(animal['Diagnosis']) > diagnosis_width:
+            diagnosis_width = len(animal['Diagnosis'])
 
-    # Menghitung total lebar tabel secara dinamis
-    total_lebar = 10 + 15 + 15 + 15 + 13 + lebar_diagnosis + 15 # Tambahan spasi pemisah
+    # Calculate total table width dynamically
+    total_width = 10 + 15 + 15 + 15 + 13 + diagnosis_width + 15 # Additional separator spaces
     
-    print('\n' + '=' * total_lebar)
-    # Menggunakan variabel lebar_diagnosis untuk mengatur format header
-    print(f'{"ID Hewan":<10} | {"Nama Hewan":<15} | {"Usia":<15} | {"Jenis Hewan":<15} | {"Jenis Kelamin":<13} | {"Diagnosis":<{lebar_diagnosis}}')
-    print('=' * total_lebar)
-    for hewan in list_data:
-        usia_tampil = Format_Usia_Tampil(hewan['Usia'])
-        # Menggunakan variabel lebar_diagnosis agar data dan header sejajar
-        print(f"{hewan['ID Hewan']:<10} | {hewan['Nama Hewan']:<15} | {usia_tampil:<15} | {hewan['Jenis Hewan']:<15} | {hewan['Jenis Kelamin']:<13} | {hewan['Diagnosis']:<{lebar_diagnosis}}")
-    print('=' * total_lebar)
+    print('\n' + '=' * total_width)
+    # Use the diagnosis_width variable to format the header
+    print(f'{"Animal ID":<10} | {"Animal Name":<15} | {"Age":<15} | {"Animal Type":<15} | {"Gender":<13} | {"Diagnosis":<{diagnosis_width}}')
+    print('=' * total_width)
+    for animal in data_list:
+        display_age = format_age_display(animal['Age'])
+        # Use the diagnosis_width variable so data and header are aligned
+        print(f"{animal['Animal_ID']:<10} | {animal['Animal_Name']:<15} | {display_age:<15} | {animal['Animal_Type']:<15} | {animal['Gender']:<13} | {animal['Diagnosis']:<{diagnosis_width}}")
+    print('=' * total_width)
     return True
 
-def Cari_Hewan_by_ID(id_dicari):
+def find_animal_by_id(id_to_find):
     '''
-    Mengembalikan data dictionary hewan sesuai ID.
-    Jika tidak ditemukan, return None.
+    Returns the animal dictionary data corresponding to the ID.
+    If not found, returns None.
     '''
-    for hewan in Data_Pasien:
-        if hewan['ID Hewan'] == id_dicari:
-            return hewan
+    for animal in patient_data:
+        if animal['Animal_ID'] == id_to_find:
+            return animal
     return None
 
-def Minta_Konfirmasi(pesan):
+def get_confirmation(message):
     '''
-    Meminta pengguna mengonfirmasi tindakan (y/n) dengan validasi input.
+    Asks the user to confirm an action (y/n) with input validation.
     '''
     while True:
-        pilihan = input(f'{pesan} (y/n): ').lower()
-        if pilihan in ['y', 'n']:
-            return pilihan == 'y'
+        choice = input(f'{message} (y/n): ').lower()
+        if choice in ['y', 'n']:
+            return choice == 'y'
         else:
-            print("Input tidak valid. Silakan masukkan 'y' atau 'n'.")
+            print("Invalid input. Please enter 'y' or 'n'.")
 
-def Input_Usia():
+def input_age():
     '''
-      Meminta input usia dari pengguna dalam format:
-    - 'X tahun Y bulan'
-    - 'X tahun'
-    - 'Y bulan'
-    - atau angka saja yang dianggap sebagai bulan
-    Mengembalikan usia total dalam bulan (int).
+      Asks for age input from the user in the format:
+    - 'X years Y months'
+    - 'X years'
+    - 'Y months'
+    - or just a number, which is considered as months
+    Returns the total age in months (int).
     '''
     while True:
-        input_str = input("Masukkan Usia (contoh: '3 tahun 2 bulan', '5 tahun', atau '8 bulan'): ").lower()
-        tahun = 0
-        bulan = 0
+        input_str = input("Enter Age (e.g., '3 years 2 months', '5 years', or '8 months'): ").lower()
+        years = 0
+        months = 0
 
         try:
-            if 'tahun' in input_str and 'bulan' in input_str:
-                # Contoh: '2 tahun 3 bulan'
-                bagian_tahun = input_str.split('tahun')[0].strip()
-                bagian_bulan = input_str.split('tahun')[1].split('bulan')[0].strip()
-                tahun = int(bagian_tahun)
-                bulan = int(bagian_bulan)
+            if 'year' in input_str and 'month' in input_str:
+                # Example: '2 years 3 months'
+                year_part = input_str.split('year')[0].strip()
+                month_part = input_str.split('year')[1].split('month')[0].strip()
+                years = int(year_part)
+                months = int(month_part)
 
-            elif 'tahun' in input_str:
-                # Contoh: '4 tahun'
-                bagian_tahun = input_str.split('tahun')[0].strip()
-                tahun = int(bagian_tahun)
+            elif 'year' in input_str:
+                # Example: '4 years'
+                year_part = input_str.split('year')[0].strip()
+                years = int(year_part)
 
-            elif 'bulan' in input_str:
-                # Contoh: '7 bulan'
-                bagian_bulan = input_str.split('bulan')[0].strip()
-                bulan = int(bagian_bulan)
+            elif 'month' in input_str:
+                # Example: '7 months'
+                month_part = input_str.split('month')[0].strip()
+                months = int(month_part)
 
             else:
-                # Jika input hanya angka, anggap sebagai bulan
-                bulan = int(input_str.strip())
-                print(f"(Input '{input_str}' dianggap sebagai {bulan} bulan)")
+                # If input is just a number, assume it's months
+                months = int(input_str.strip())
+                print(f"(Input '{input_str}' is considered as {months} months)")
 
-            # Validasi nilai akhir
-            if tahun < 0:
-                print('Tahun tidak boleh negatif.')
+            # Validate the final values
+            if years < 0:
+                print('Year cannot be negative.')
                 continue
-            if bulan < 0 or bulan >= 12:
-                print('Bulan harus antara 0 sampai 11.')
+            if months < 0 or months >= 12:
+                print('Month must be between 0 and 11.')
                 continue
 
-            return tahun * 12 + bulan
+            return years * 12 + months
 
         except (ValueError, IndexError):
-            print("Format Input Tidak Valid. Contoh yang Benar: '2 tahun 6 bulan', '4 tahun', '9 bulan'")
+            print("Invalid Input Format. Correct examples: '2 years 6 months', '4 years', '9 months'")
 
-def Input_Jenis_Kelamin():
+def input_gender():
     '''
-    Menampilkan pilihan jenis kelamin untuk input valid (1 atau 2).
-    Mengembalikan string 'Jantan' atau 'Betina'.
+    Displays gender options for valid input (1 or 2).
+    Returns the string 'Male' or 'Female'.
     '''
     while True:
-        print('Pilih Jenis Kelamin:')
-        print('1. Jantan')
-        print('2. Betina')
-        pilihan = input('Masukkan pilihan (1/2): ')
-        if pilihan == '1':
-            return 'Jantan'
-        elif pilihan == '2':
-            return 'Betina'
+        print('Select Gender:')
+        print('1. Male')
+        print('2. Female')
+        choice = input('Enter choice (1/2): ')
+        if choice == '1':
+            return 'Male'
+        elif choice == '2':
+            return 'Female'
         else:
-            print("Input tidak valid. Harap masukkan '1' atau '2'.")
+            print("Invalid input. Please enter '1' or '2'.")
 
-def Input_Teks_Huruf(prompt):
+def input_alpha_text(prompt):
     '''
-    Fungsi 'spesialis' untuk meminta input yang hanya berisi huruf dan spasi.
+    A 'specialist' function to request input that only contains letters and spaces.
     '''
     while True:
-        teks = input(prompt).title()
-        # Memastikan input tidak kosong dan hanya berisi huruf/spasi
-        if teks.strip() and all(char.isalpha() or char.isspace() for char in teks):
-            return teks
+        text = input(prompt).title()
+        # Ensure input is not empty and only contains letters/spaces
+        if text.strip() and all(char.isalpha() or char.isspace() for char in text):
+            return text
         else:
-            print('Input Tidak Valid. Harap Hanya Masukkan Huruf dan Tidak Boleh Kosong.')
+            print('Invalid Input. Please only enter letters and it cannot be empty.')
 
-def Input_Diagnosis(prompt):
+def input_diagnosis(prompt):
     '''
-    Meminta input diagnosis yang tidak kosong,
-    hanya mengizinkan huruf, angka, spasi, dan simbol -+/().,
-    merapikan spasi berlebih tanpa pakai re,
-    dan mengembalikan teks dalam format Title Case.
+    Requests a non-empty diagnosis input,
+    only allows letters, numbers, spaces, and the symbols -+/().,
+    trims excess spaces without using regex,
+    and returns the text in Title Case format.
     '''
     allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 -+/()."
 
     while True:
-        teks = input(prompt).strip()
+        text = input(prompt).strip()
         
-        if teks == "":
-            print("Diagnosis tidak boleh kosong.")
+        if text == "":
+            print("Diagnosis cannot be empty.")
             continue
-        # Validasi karakter
-        karakter_tidak_valid = False
-        for char in teks:
+        # Character validation
+        is_invalid_char = False
+        for char in text:
             if char not in allowed:
-                karakter_tidak_valid = True
+                is_invalid_char = True
                 break
-        if karakter_tidak_valid:
-            print("Diagnosis mengandung karakter tidak valid.\nHanya huruf, angka, spasi, dan simbol -+/(). yang diperbolehkan.")
+        if is_invalid_char:
+            print("Diagnosis contains invalid characters.\nOnly letters, numbers, spaces, and symbols -+/(). are allowed.")
         else:
-            # Hapus spasi ganda
-            teks_bersih = ' '.join(teks.split())  # misal: ['radang', '', 'parah'] => 'radang parah'
-            return teks_bersih.title()
+            # Remove double spaces
+            clean_text = ' '.join(text.split()) 
+            return clean_text.title()
 
-def Buat_ID_Otomatis():
+def create_auto_id():
     '''
-    Menghasilkan ID baru otomatis (misal: H003 setelah H002).
-    Berdasarkan data terakhir dalam list data_pasien.
+    Generates a new ID automatically (e.g., H003 after H002).
+    Based on the last data in the patient_data list.
     '''
-    if not Data_Pasien:
+    if not patient_data:
         return 'H001'
-    id_terakhir = Data_Pasien[-1]['ID Hewan']
-    nomor_terakhir = int(id_terakhir[1:])
-    nomor_baru = nomor_terakhir + 1
-    if nomor_baru < 10:
-        nomor_string = '00' + str(nomor_baru)
-    elif nomor_baru < 100:
-        nomor_string = '0' + str(nomor_baru)
+    last_id = patient_data[-1]['Animal_ID']
+    last_number = int(last_id[1:])
+    new_number = last_number + 1
+    if new_number < 10:
+        number_string = '00' + str(new_number)
+    elif new_number < 100:
+        number_string = '0' + str(new_number)
     else:
-        nomor_string = str(nomor_baru)
-    id_baru = f'H{nomor_string}'
-    return id_baru
+        number_string = str(new_number)
+    new_id = f'H{number_string}'
+    return new_id
 
-def Tampilkan_Statistik(Data_Pasien):
+def display_statistics(data_list):
     '''
-    Mencetak statistik dari daftar pasien hewan, seperti total hewan, jumlah per jenis,
-    kelamin, rata-rata usia per jenis, diagnosis, dan diagnosis terbanyak.
+    Prints statistics from the animal patient list, such as total animals, counts by type,
+    gender, average age per type, diagnosis, and most frequent diagnosis.
     '''
-    print('\n===== Statistik Data Hewan =====')
+    print('\n===== Animal Data Statistics =====')
 
-    # Jumlah total hewan
-    jumlah_total = len(Data_Pasien)
-    print(f"{'Total Hewan':<30}: {jumlah_total} ekor")
+    # Total number of animals
+    total_count = len(data_list)
+    print(f"{'Total Animals':<30}: {total_count} animals")
 
-    # Jumlah berdasarkan Jenis Hewan
-    jumlah_per_jenis_hewan = {}
-    for hewan in Data_Pasien:
-        jenis = hewan['Jenis Hewan']
-        if jenis in jumlah_per_jenis_hewan:
-            jumlah_per_jenis_hewan[jenis] += 1
+    # Count by Animal Type
+    count_by_animal_type = {}
+    for animal in data_list:
+        animal_type = animal['Animal_Type']
+        if animal_type in count_by_animal_type:
+            count_by_animal_type[animal_type] += 1
         else:
-            jumlah_per_jenis_hewan[jenis] = 1
+            count_by_animal_type[animal_type] = 1
 
-    print(f"\n{'Jumlah Berdasarkan Jenis Hewan':<30}")
-    for jenis, jumlah in jumlah_per_jenis_hewan.items():
-        print(f"  - {jenis:<25}: {jumlah} ekor")
+    print(f"\n{'Count by Animal Type':<30}")
+    for animal_type, count in count_by_animal_type.items():
+        print(f"  - {animal_type:<25}: {count} animals")
 
-    # Jumlah berdasarkan Jenis Kelamin
-    jumlah_per_jenis_kelamin = {}
-    for hewan in Data_Pasien:
-        kelamin = hewan['Jenis Kelamin']
-        if kelamin in jumlah_per_jenis_kelamin:
-            jumlah_per_jenis_kelamin[kelamin] += 1
+    # Count by Gender
+    count_by_gender = {}
+    for animal in data_list:
+        gender = animal['Gender']
+        if gender in count_by_gender:
+            count_by_gender[gender] += 1
         else:
-            jumlah_per_jenis_kelamin[kelamin] = 1
+            count_by_gender[gender] = 1
 
-    print(f"\n{'Jumlah Berdasarkan Jenis Kelamin':<30}")
-    for kelamin, jumlah in jumlah_per_jenis_kelamin.items():
-        print(f"  - {kelamin:<25}: {jumlah} ekor")
+    print(f"\n{'Count by Gender':<30}")
+    for gender, count in count_by_gender.items():
+        print(f"  - {gender:<25}: {count} animals")
 
-    # Usia Rata-rata per Jenis Hewan
-    usia_per_jenis = {}
-    hitung_per_jenis = {}
-    for hewan in Data_Pasien:
-        jenis = hewan['Jenis Hewan']
-        usia = hewan['Usia']
-        if jenis in usia_per_jenis:
-            usia_per_jenis[jenis] += usia
-            hitung_per_jenis[jenis] += 1
+    # Average Age per Animal Type
+    age_by_type = {}
+    count_per_type = {}
+    for animal in data_list:
+        animal_type = animal['Animal_Type']
+        age = animal['Age']
+        if animal_type in age_by_type:
+            age_by_type[animal_type] += age
+            count_per_type[animal_type] += 1
         else:
-            usia_per_jenis[jenis] = usia
-            hitung_per_jenis[jenis] = 1
+            age_by_type[animal_type] = age
+            count_per_type[animal_type] = 1
 
-    print(f"\n{'Rata-rata Usia per Jenis Hewan':<30}")
-    for jenis in usia_per_jenis:
-        rata2 = usia_per_jenis[jenis] / hitung_per_jenis[jenis]
-        print(f"  - {jenis:<25}: {round(rata2, 1)} bulan")
+    print(f"\n{'Average Age per Animal Type':<30}")
+    for animal_type in age_by_type:
+        average = age_by_type[animal_type] / count_per_type[animal_type]
+        print(f"  - {animal_type:<25}: {round(average, 1)} months")
 
-    # Jumlah Berdasarkan Diagnosis
-    jumlah_per_diagnosis = {}
-    for hewan in Data_Pasien:
-        diagnosis = hewan['Diagnosis']
-        if diagnosis in jumlah_per_diagnosis:
-            jumlah_per_diagnosis[diagnosis] += 1
+    # Count by Diagnosis
+    count_by_diagnosis = {}
+    for animal in data_list:
+        diagnosis = animal['Diagnosis']
+        if diagnosis in count_by_diagnosis:
+            count_by_diagnosis[diagnosis] += 1
         else:
-            jumlah_per_diagnosis[diagnosis] = 1
+            count_by_diagnosis[diagnosis] = 1
 
-    print(f"\n{'Jumlah Berdasarkan Diagnosis':<30}")
-    for diagnosis, jumlah in jumlah_per_diagnosis.items():
-        print(f"  - {diagnosis:<25}: {jumlah} kasus")
+    print(f"\n{'Count by Diagnosis':<30}")
+    for diagnosis, count in count_by_diagnosis.items():
+        print(f"  - {diagnosis:<25}: {count} cases")
 
-    # Diagnosis Terbanyak
-    if jumlah_per_diagnosis:
-        diagnosis_terbanyak = ''
-        jumlah_terbanyak = 0
-        for diagnosis, jumlah in jumlah_per_diagnosis.items():
-            if jumlah > jumlah_terbanyak:
-                diagnosis_terbanyak = diagnosis
-                jumlah_terbanyak = jumlah
+    # Most Frequent Diagnosis
+    if count_by_diagnosis:
+        most_frequent_diagnosis = ''
+        highest_count = 0
+        for diagnosis, count in count_by_diagnosis.items():
+            if count > highest_count:
+                most_frequent_diagnosis = diagnosis
+                highest_count = count
 
-        print(f"\n{'Diagnosis Terbanyak':<30}: {diagnosis_terbanyak} ({jumlah_terbanyak} kasus)")
+        print(f"\n{'Most Frequent Diagnosis':<30}: {most_frequent_diagnosis} ({highest_count} cases)")
 
 # ========================
-# Bagian 3: Fungsi-Fungsi Menu Utama
+# Part 3: Main Menu Functions
 # ========================
 
-def Menu_Lihat_Data():
+def menu_view_data():
     '''
-    Menampilkan menu untuk melihat data pasien hewan.
-    Opsi menu:
-    1. Lihat semua data
-    2. Cari berdasarkan ID
-    3. Cari berdasarkan nama
-    4. Lihat statistik
-    0. Kembali ke menu utama
+    Displays the menu for viewing animal patient data.
+    Menu options:
+    1. View all data
+    2. Search by ID
+    3. Search by name
+    4. View statistics
+    0. Return to main menu
     '''
     while True:
-        print('\n+++++++ Report Data Hewan +++++++')
-        print('1. Report Seluruh Data')
-        print('2. Report Data Tertentu (berdasarkan ID)')
-        print('3. Cari Berdasarkan Nama Hewan')
-        print('4. Statistik Data Hewan')
-        print('0. Kembali Ke Menu Utama')
-        pilihan = input('Silakan Pilih Sub Menu [1-4] atau [0]: ')
+        print('\n+++++++ Report Animal Data +++++++')
+        print('1. Report All Data')
+        print('2. Report Specific Data (by ID)')
+        print('3. Search by Animal Name')
+        print('4. Animal Data Statistics')
+        print('0. Return to Main Menu')
+        choice = input('Please Select Sub Menu [1-4] or [0]: ')
 
-        if pilihan == '1':
-            # Menampilkan seluruh data dalam bentuk tabel
-            Tampilkan_Tabel(Data_Pasien)
-        elif pilihan == '2':
-            # Menampilkan data berdasarkan ID Hewan
-            if not Data_Pasien:
-                print('\n**** Tidak ada Data Hewan ****'); 
+        if choice == '1':
+            # Display all data in a table
+            display_table(patient_data)
+        elif choice == '2':
+            # Display data by Animal ID
+            if not patient_data:
+                print('\n**** No Animal Data ****'); 
                 continue
-            id_cari = input('Masukkan ID Hewan: ').upper()
-            hewan = Cari_Hewan_by_ID(id_cari)
-            if hewan:
-                print(f'\nData untuk ID {id_cari} ditemukan:')
-                usia_tampil = Format_Usia_Tampil(hewan['Usia'])
-                print(f"  {'ID Hewan':<15}: {hewan['ID Hewan']}")
-                print(f"  {'Nama Hewan':<15}: {hewan['Nama Hewan']}")
-                print(f"  {'Usia':<15}: {usia_tampil}")
-                print(f"  {'Jenis Hewan':<15}: {hewan['Jenis Hewan']}")
-                print(f"  {'Jenis Kelamin':<15}: {hewan['Jenis Kelamin']}")
-                print(f"  {'Diagnosis':<15}: {hewan['Diagnosis']}")
+            search_id = input('Enter Animal ID: ').upper()
+            animal = find_animal_by_id(search_id)
+            if animal:
+                print(f'\nData for ID {search_id} found:')
+                display_age = format_age_display(animal['Age'])
+                print(f"  {'Animal ID':<15}: {animal['Animal_ID']}")
+                print(f"  {'Animal Name':<15}: {animal['Animal_Name']}")
+                print(f"  {'Age':<15}: {display_age}")
+                print(f"  {'Animal Type':<15}: {animal['Animal_Type']}")
+                print(f"  {'Gender':<15}: {animal['Gender']}")
+                print(f"  {'Diagnosis':<15}: {animal['Diagnosis']}")
             else:
-                print(f'\n**** Data Hewan dengan ID {id_cari} Tidak Ditemukan ****')
+                print(f'\n**** Animal Data with ID {search_id} Not Found ****')
         
-        elif pilihan == '3':
-             # Menampilkan data berdasarkan pencarian Nama Hewan
-            if not Data_Pasien:
-                print('\n**** Tidak ada Data Hewan ****'); 
+        elif choice == '3':
+             # Display data by searching for Animal Name
+            if not patient_data:
+                print('\n**** No Animal Data ****'); 
                 continue
-            nama_cari = input('Masukkan Nama Hewan yang dicari: ').lower()
-            hasil_pencarian = []
-            for hewan in Data_Pasien:
-                if nama_cari in hewan['Nama Hewan'].lower():
-                    hasil_pencarian.append(hewan)
+            search_name = input('Enter Animal Name to search for: ').lower()
+            search_results = []
+            for animal in patient_data:
+                if search_name in animal['Animal_Name'].lower():
+                    search_results.append(animal)
             
-            if hasil_pencarian:
-                print(f"\nMenampilkan hasil pencarian untuk '{nama_cari}':")
-                Tampilkan_Tabel(hasil_pencarian)
+            if search_results:
+                print(f"\nDisplaying search results for '{search_name}':")
+                display_table(search_results)
             else:
-                print(f"\n**** Tidak ditemukan hewan dengan nama yang mengandung '{nama_cari}' ****")
+                print(f"\n**** No animal found with a name containing '{search_name}' ****")
 
-        elif pilihan == '4':
-            # Menampilkan statistik ringan
-            if not Data_Pasien:
-                print('\n**** Tidak ada Data Hewan ****'); 
+        elif choice == '4':
+            # Display simple statistics
+            if not patient_data:
+                print('\n**** No Animal Data ****'); 
                 continue
-            Tampilkan_Statistik(Data_Pasien)
+            display_statistics(patient_data)
 
-        elif pilihan == '0':
+        elif choice == '0':
             break
         else:
-            print('\n***** Pilihan yang Anda Masukkan Salah *****')
+            print('\n***** Your choice is incorrect *****')
 
-def Menu_Tambah_Data():
+def menu_add_data():
     '''
-    Menyediakan fitur untuk menambahkan data pasien hewan baru.
-    ID Hewan akan dibuat otomatis.
-    Pengguna diminta mengisi nama, usia, jenis hewan, jenis kelamin, dan diagnosis.
-    Program akan menanyakan konfirmasi sebelum menyimpan.
+    Provides a feature to add new animal patient data.
+    The Animal ID will be created automatically.
+    The user is asked to fill in name, age, animal type, gender, and diagnosis.
+    The program will ask for confirmation before saving.
     '''
     while True:
-        print('\n+++++++ Menambah Data Hewan +++++++')
-        print('1. Tambah Data Hewan Baru')
-        print('2. Tambah Beberapa Data Sekaligus')
-        print('0. Kembali Ke Menu Utama')
-        pilihan = input('Silakan Pilih Sub Menu [1-2] atau [0]: ')
+        print('\n+++++++ Adding Animal Data +++++++')
+        print('1. Add New Animal Data')
+        print('2. Add Multiple Data at Once')
+        print('0. Return to Main Menu')
+        choice = input('Please Select Sub Menu [1-2] or [0]: ')
 
-        if pilihan == '1':
-            id_baru = Buat_ID_Otomatis()
-            print(f'\nID Hewan baru akan dibuat secara otomatis: {id_baru}')
-            hewan_baru = {
-                'ID Hewan': id_baru,
-                'Nama Hewan': Input_Teks_Huruf('Masukkan Nama Hewan: '),
-                'Usia': Input_Usia(),
-                'Jenis Hewan': Input_Teks_Huruf('Masukkan Jenis Hewan: '),
-                'Jenis Kelamin': Input_Jenis_Kelamin(),
-                'Diagnosis': Input_Diagnosis('Masukkan Diagnosis Hewan: ')
+        if choice == '1':
+            new_id = create_auto_id()
+            print(f'\nA new Animal ID will be automatically created: {new_id}')
+            new_animal = {
+                'Animal_ID': new_id,
+                'Animal_Name': input_alpha_text('Enter Animal Name: '),
+                'Age': input_age(),
+                'Animal_Type': input_alpha_text('Enter Animal Type: '),
+                'Gender': input_gender(),
+                'Diagnosis': input_diagnosis('Enter Animal Diagnosis: ')
             }
-            if Minta_Konfirmasi('Apakah Data akan disimpan?'):
-                Data_Pasien.append(hewan_baru)
-                print('\n>> Data Hewan Berhasil Tersimpan <<')
+            if get_confirmation('Do you want to save this data?'):
+                patient_data.append(new_animal)
+                print('\n>> Animal Data Successfully Saved <<')
             else:
-                print('\n>> Data tidak jadi disimpan <<')
-        elif pilihan == '2':
-            jumlah_input = input('Berapa banyak data yang ingin ditambahkan?: ')
-            if jumlah_input.isdigit():
-                jumlah = int(jumlah_input)
-                for i in range(jumlah):
-                    print(f'\n>> Data ke-{i+1}')
-                    id_baru = Buat_ID_Otomatis()
-                    hewan_baru = {
-                        'ID Hewan': id_baru,
-                        'Nama Hewan': Input_Teks_Huruf('Masukkan Nama Hewan: '),
-                        'Usia': Input_Usia(),
-                        'Jenis Hewan': Input_Teks_Huruf('Masukkan Jenis Hewan: '),
-                        'Jenis Kelamin': Input_Jenis_Kelamin(),
-                        'Diagnosis': Input_Diagnosis('Masukkan Diagnosis Hewan: ')
+                print('\n>> Data was not saved <<')
+        elif choice == '2':
+            input_count = input('How much data do you want to add?: ')
+            if input_count.isdigit():
+                count = int(input_count)
+                for i in range(count):
+                    print(f'\n>> Data #{i+1}')
+                    new_id = create_auto_id()
+                    new_animal = {
+                        'Animal_ID': new_id,
+                        'Animal_Name': input_alpha_text('Enter Animal Name: '),
+                        'Age': input_age(),
+                        'Animal_Type': input_alpha_text('Enter Animal Type: '),
+                        'Gender': input_gender(),
+                        'Diagnosis': input_diagnosis('Enter Animal Diagnosis: ')
                     }
-                    if Minta_Konfirmasi('Apakah Data ini akan disimpan?'):
-                        Data_Pasien.append(hewan_baru)
-                        print('>> Data Berhasil Ditambahkan <<')
+                    if get_confirmation('Do you want to save this data?'):
+                        patient_data.append(new_animal)
+                        print('>> Data Successfully Added <<')
                     else:
-                        print('>> Data Tidak Jadi Ditambahkan <<')
-                print('\n>> Proses Penambahan Data Selesai <<')
+                        print('>> Data Was Not Added <<')
+                print('\n>> Data Addition Process Finished <<')
             else:
-                print('Input jumlah tidak valid. Harap masukkan angka yang benar.')
-        elif pilihan == '0':
+                print('Invalid quantity input. Please enter a valid number.')
+        elif choice == '0':
             break
         else:
-            print('\n***** Pilihan yang Anda Masukkan Salah *****')
+            print('\n***** Your choice is incorrect *****')
 
-def Menu_Ubah_Data():
+def menu_update_data():
     '''
-    Menyediakan fitur untuk mengubah salah satu kolom data hewan berdasarkan ID
-    atau secara massal (diagnosis).
+    Provides a feature to change a column of animal data based on ID
+    or in bulk (diagnosis).
     '''
     while True:
-        print('\n--------- Mengubah Data Hewan ---------')
-        print('1. Ubah Data Hewan')
-        print('2. Ubah Diagnosis Secara Massal')
-        print('0. Kembali Ke Menu Utama')
-        pilihan = input('Silakan Pilih Sub Menu [1-2] atau [0]: ')
+        print('\n--------- Updating Animal Data ---------')
+        print('1. Update Animal Data')
+        print('2. Update Diagnosis in Bulk')
+        print('0. Return to Main Menu')
+        choice = input('Please Select Sub Menu [1-2] or [0]: ')
 
-        if pilihan == '1':
-            if not Tampilkan_Tabel(Data_Pasien): continue
-            id_cari = input('Masukkan ID Hewan yang akan diubah: ').upper()
-            hewan = Cari_Hewan_by_ID(id_cari)
+        if choice == '1':
+            if not display_table(patient_data): continue
+            search_id = input('Enter the Animal ID to be updated: ').upper()
+            animal = find_animal_by_id(search_id)
 
-            if not hewan:
-                print(f'\n**** Data Hewan dengan ID {id_cari} tidak ditemukan ****')
+            if not animal:
+                print(f'\n**** Animal Data with ID {search_id} not found ****')
                 continue
 
-            print(f"\nData yang akan diubah: Nama: {hewan['Nama Hewan']}, Diagnosis: {hewan['Diagnosis']}")
-            if not Minta_Konfirmasi('Lanjutkan mengubah data ini?'):
-                print('\n>> Update Dibatalkan <<')
+            print(f"\nData to be updated: Name: {animal['Animal_Name']}, Diagnosis: {animal['Diagnosis']}")
+            if not get_confirmation('Continue updating this data?'):
+                print('\n>> Update Canceled <<')
                 continue
 
-            kolom_mapping = {
-                'nama': 'Nama Hewan', 'usia': 'Usia', 'jenis hewan': 'Jenis Hewan',
-                'jenis kelamin': 'Jenis Kelamin', 'diagnosis': 'Diagnosis'
+            # Map user-friendly English input to internal dictionary keys
+            column_mapping = {
+                'name': 'Animal_Name', 'age': 'Age', 'animal type': 'Animal_Type',
+                'gender': 'Gender', 'diagnosis': 'Diagnosis'
             }
             while True:
-                kolom_input = input('Masukkan nama kolom yang ingin diubah (Nama/Usia/Jenis Hewan/Jenis Kelamin/Diagnosis): ').lower()
-                if kolom_input in kolom_mapping:
+                column_input = input('Enter the column name to change (Name/Age/Animal Type/Gender/Diagnosis): ').lower()
+                if column_input in column_mapping:
                     break
                 else:
-                    print('\n**** Nama Kolom Tidak Valid. Coba Lagi. ****')
+                    print('\n**** Invalid Column Name. Try Again. ****')
             
-            key_to_update = kolom_mapping[kolom_input]
-            nilai_lama = hewan[key_to_update]
+            key_to_update = column_mapping[column_input]
+            old_value = animal[key_to_update]
 
-            print(f"Nilai lama untuk '{key_to_update}': {Format_Usia_Tampil(nilai_lama) if key_to_update == 'Usia' else nilai_lama}")
+            print(f"Old value for '{key_to_update}': {format_age_display(old_value) if key_to_update == 'Age' else old_value}")
 
-            if key_to_update == 'Usia':
-                nilai_baru = Input_Usia()
-            elif key_to_update == 'Jenis Kelamin':
-                nilai_baru = Input_Jenis_Kelamin()
-            elif key_to_update in ['Nama Hewan', 'Jenis Hewan']:
-                nilai_baru = Input_Teks_Huruf(f'Masukkan {key_to_update} baru: ')
-            else: # Untuk Diagnosis
-                nilai_baru = Input_Diagnosis(f'Masukkan {key_to_update} baru: ')
+            if key_to_update == 'Age':
+                new_value = input_age()
+            elif key_to_update == 'Gender':
+                new_value = input_gender()
+            elif key_to_update in ['Animal_Name', 'Animal_Type']:
+                new_value = input_alpha_text(f'Enter new {key_to_update.replace("_", " ")}: ')
+            else: # For Diagnosis
+                new_value = input_diagnosis(f'Enter new {key_to_update}: ')
 
-            nilai_tampil = Format_Usia_Tampil(nilai_baru) if key_to_update == 'Usia' else nilai_baru
-            if Minta_Konfirmasi(f"Apakah Anda Yakin Ingin Mengubah {key_to_update} Menjadi '{nilai_tampil}'?"):
-                hewan[key_to_update] = nilai_baru
-                print('\n>> Data Berhasil Terupdate <<')
-                print('Data setelah diubah:')
-                Tampilkan_Tabel([hewan])
+            display_value = format_age_display(new_value) if key_to_update == 'Age' else new_value
+            if get_confirmation(f"Are you sure you want to change {key_to_update} to '{display_value}'?"):
+                animal[key_to_update] = new_value
+                print('\n>> Data Successfully Updated <<')
+                print('Data after update:')
+                display_table([animal])
             else:
-                print('\n>> Update Tidak Jadi Dilakukan <<')
+                print('\n>> Update Was Not Performed <<')
 
-        elif pilihan == '2':
-            if not Data_Pasien: print('\n**** Tidak ada Data Hewan ****'); continue
+        elif choice == '2':
+            if not patient_data: print('\n**** No Animal Data ****'); continue
             
-            diagnosis_lama = input('Masukkan diagnosis yang ingin diubah (tidak peka huruf besar/kecil): ')
+            old_diagnosis = input('Enter the diagnosis to change (case-insensitive): ')
             
-            # Cari dulu data yang cocok
-            data_cocok = []
-            for hewan in Data_Pasien:
-                if hewan['Diagnosis'].lower() == diagnosis_lama.lower():
-                    data_cocok.append(hewan)
+            # First, find the matching data
+            matching_data = []
+            for animal in patient_data:
+                if animal['Diagnosis'].lower() == old_diagnosis.lower():
+                    matching_data.append(animal)
 
-            if not data_cocok:
-                print(f'>> Tidak ditemukan data dengan diagnosis "{diagnosis_lama}" <<')
+            if not matching_data:
+                print(f'>> No data found with diagnosis "{old_diagnosis}" <<')
                 continue
 
-            print(f'\nDitemukan {len(data_cocok)} data yang cocok:')
-            Tampilkan_Tabel(data_cocok)
+            print(f'\nFound {len(matching_data)} matching records:')
+            display_table(matching_data)
 
-            diagnosis_baru = Input_Diagnosis('Ganti menjadi diagnosis baru: ')
+            new_diagnosis = input_diagnosis('Change to new diagnosis: ')
             
-            if Minta_Konfirmasi(f'Yakin ingin mengubah {len(data_cocok)} data tersebut menjadi "{diagnosis_baru}"?'):
-                jumlah_diubah = 0
-                for hewan in Data_Pasien:
-                    if hewan['Diagnosis'].lower() == diagnosis_lama.lower():
-                        hewan['Diagnosis'] = diagnosis_baru
-                        jumlah_diubah += 1
-                print(f'>> {jumlah_diubah} data berhasil diperbarui <<')
+            if get_confirmation(f'Are you sure you want to change {len(matching_data)} records to "{new_diagnosis}"?'):
+                count_updated = 0
+                for animal in patient_data:
+                    if animal['Diagnosis'].lower() == old_diagnosis.lower():
+                        animal['Diagnosis'] = new_diagnosis
+                        count_updated += 1
+                print(f'>> {count_updated} records successfully updated <<')
             else:
-                print('>> Perubahan dibatalkan <<')
+                print('>> Change canceled <<')
 
-        elif pilihan == '0':
+        elif choice == '0':
             break
         else:
-            print('\n***** Pilihan yang Anda Masukkan Salah *****')
+            print('\n***** Your choice is incorrect *****')
 
-def Menu_Hapus_Data():
+def menu_delete_data():
     '''
-    Menyediakan fitur untuk menghapus data hewan berdasarkan ID.
-    Program akan meminta konfirmasi sebelum data benar-benar dihapus.
+    Provides a feature to delete animal data by ID.
+    The program will ask for confirmation before the data is actually deleted.
     '''
     while True:
-        print('\n--------- Menghapus Data Hewan ---------')
-        print('1. Hapus Data Hewan')
-        print('2. Hapus Semua Data (Reset)')
-        print('0. Kembali Ke Menu Utama')
-        pilihan = input('Silakan Pilih Sub Menu [1-2] atau [0]: ')
+        print('\n--------- Deleting Animal Data ---------')
+        print('1. Delete Animal Data')
+        print('2. Delete All Data (Reset)')
+        print('0. Return to Main Menu')
+        choice = input('Please Select Sub Menu [1-2] or [0]: ')
 
-        if pilihan == '1':
-            if not Tampilkan_Tabel(Data_Pasien): continue
-            id_hapus = input('Masukkan ID Hewan yang Akan Dihapus: ').upper()
-            hewan = Cari_Hewan_by_ID(id_hapus)
+        if choice == '1':
+            if not display_table(patient_data): continue
+            id_to_delete = input('Enter the Animal ID to be Deleted: ').upper()
+            animal = find_animal_by_id(id_to_delete)
 
-            if not hewan:
-                print(f'\n**** Data Hewan dengan ID {id_hapus} Tidak Ditemukan ****')
+            if not animal:
+                print(f'\n**** Animal Data with ID {id_to_delete} Not Found ****')
                 continue
 
-            if Minta_Konfirmasi(f"Yakin ingin menghapus data {hewan['Nama Hewan']} (ID: {hewan['ID Hewan']})?"):
-                Data_Pasien.remove(hewan)
-                print('\n>> Data Berhasil Dihapus <<')
+            if get_confirmation(f"Are you sure you want to delete data for {animal['Animal_Name']} (ID: {animal['Animal_ID']})?"):
+                patient_data.remove(animal)
+                print('\n>> Data Successfully Deleted <<')
             else:
-                print('\n>> Data Tidak Jadi Dihapus <<')
-        elif pilihan == '2':
-            if Minta_Konfirmasi('Yakin ingin menghapus semua data?'):
-                Data_Pasien.clear()
-                print('>> Semua data berhasil dihapus <<')
-        elif pilihan == '0':
+                print('\n>> Data Was Not Deleted <<')
+        elif choice == '2':
+            if get_confirmation('Are you sure you want to delete all data?'):
+                patient_data.clear()
+                print('>> All data successfully deleted <<')
+        elif choice == '0':
             break
         else:
-            print('\n***** Pilihan yang Anda Masukkan Salah *****')
+            print('\n***** Your choice is incorrect *****')
 
 # ========================
-# Bagian 4: Program Utama
+# Part 4: Main Program
 # ========================
 
-def Main():
+def main():
     '''
-    Fungsi utama yang menjadi 'jantung' program.
-    Menampilkan menu dan menangani alur utama.
-    Akan terus berjalan hingga pengguna memilih keluar.
+    The main function that is the 'heart' of the program.
+    Displays the menu and handles the main flow.
+    Will keep running until the user chooses to exit.
     '''
     while True:
-        Tampilkan_Menu()
-        pilihan = input('Silakan Pilih Main Menu [1-5]: ')
+        display_menu()
+        choice = input('Please Select Main Menu [1-5]: ')
 
-        if pilihan == '1':
-            Menu_Lihat_Data()
-        elif pilihan == '2':
-            Menu_Tambah_Data()
-        elif pilihan == '3':
-            Menu_Ubah_Data()
-        elif pilihan == '4':
-            Menu_Hapus_Data()
-        elif pilihan == '5':
-            print('\nTerima Kasih Telah Menggunakan Program ANABUL!!!')
+        if choice == '1':
+            menu_view_data()
+        elif choice == '2':
+            menu_add_data()
+        elif choice == '3':
+            menu_update_data()
+        elif choice == '4':
+            menu_delete_data()
+        elif choice == '5':
+            print('\nThank You for Using the ANABUL Program!!!')
             break
         else:
-            print('\n***** Pilihan yang Anda Masukkan Salah *************')
+            print('\n***** Your choice is incorrect *************')
 
-# Baris ini adalah 'pintu masuk' standar untuk program Python.
-# Artinya: 'Hanya jalankan fungsi main() jika file ini dieksekusi secara langsung'.
+# This line is the standard 'entry point' for a Python program.
+# It means: 'Only run the main() function if this file is executed directly'.
 if __name__ == '__main__':
-    Main()
+    main()
