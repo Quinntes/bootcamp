@@ -32,50 +32,50 @@ It helps these users in recording, searching, updating, and deleting patient rec
 
 ## Features
 
-### Create (`Menu_Tambah_Data()`):
+### Create (`menu_add_data()`):
 
-  * Add new animal patient entries with required fields: **`Nama Hewan`** (Name), **`Usia`** (Age), **`Jenis Hewan`** (Species), **`Jenis Kelamin`** (Gender), **`Diagnosis`**
-  * Automatically generates a unique **`ID Hewan`** using the `Buat_ID_Otomatis()` function.
-  * Includes **input validation** for proper formatting (e.g., text-only for names and species via `Input_Teks_Huruf()`, age in months/years via `Input_Usia()`, gender selection via `Input_Jenis_Kelamin()`, and general text input via `Input_Teks_Bebas()`).
+  * Add new animal patient entries with required fields: **`Animal_Name`** (Name), **`Age`** (Age), **`Animal_Type`** (Species), **`Gender`** (Gender), **`Diagnosis`**
+  * Automatically generates a unique **`Animal_ID`** using the `create_auto_id()` function.
+  * Includes **input validation** for proper formatting (e.g., text-only for names and species via `input_alpha_text()`, age in months/years via `input_age()`, gender selection via `input_gender()`, and general text input via `input_diagnosis()`).
   * Supports adding a single record or multiple records in one session.
 
-### Read (`Menu_Lihat_Data()`):
+### Read (`menu_view_data()`):
 
-  * **View full data list** in a formatted table using `Tampilkan_Tabel()`.
+  * **View full data list** in a formatted table using `display_table()`.
   * **Search for specific patient data** by:
-      * **ID** (`Cari_Hewan_by_ID()`)
+      * **ID** (`find_animal_by_id()`)
       * **Partial/full name match**
   * Filter and display targeted results with clear formatting.
-  * Includes a **`Tampilkan_Statistik()`** function to generate summary views of patient data (total animals, counts by species, gender, diagnosis, and average age by species).
-  * Patient age is intelligently displayed in years and months using `Format_Usia_Tampil()`.
+  * Includes a **`display_statistics()`** function to generate summary views of patient data (total animals, counts by species, gender, diagnosis, and average age by species).
+  * Patient age is intelligently displayed in years and months using `format_age_display()`.
 
-### Update (`Menu_Ubah_Data()`):
+### Update (`menu_update_data()`):
 
   * Modify individual fields of an existing patient record after searching by ID.
   * Field-by-field editing options (e.g., change gender, update diagnosis).
   * **Validated inputs** are used for new values, similar to the Create function.
   * Includes an option to **update diagnosis across multiple records** that share the same old diagnosis.
-  * Confirmation prompts (`Minta_Konfirmasi()`) are required to avoid accidental overwrites.
+  * Confirmation prompts (`get_confirmation()`) are required to avoid accidental overwrites.
 
-### Delete (`Menu_Hapus_Data()`):
+### Delete (`menu_delete_data()`):
 
   * Remove animal patient records by ID.
-  * Confirmation required (`Minta_Konfirmasi()`) before final deletion.
+  * Confirmation required (`get_confirmation()`) before final deletion.
   * Includes an option to **clear all patient data** (reset the system).
 
 -----
 
 ## Data Model
 
-This application uses Python's **`list` of `dictionary`** objects to store data in memory. The initial data is set in the `Data_Pasien` global variable.
+This application uses Python's **`list` of `dictionary`** objects to store data in memory. The initial data is set in the `patient_data` global variable.
 
 Each animal patient record contains the following fields:
 
-  * **`ID Hewan`**: (String) - Unique identifier for each patient (e.g., `H001`, `H002`)
-  * **`Nama Hewan`**: (String) - The name of the animal
-  * **`Usia`**: (Integer) - Age in months, converted and displayed in readable format (e.g., "2 tahun 3 bulan") by `Format_Usia_Tampil()`.
-  * **`Jenis Hewan`**: (String) - Type/species of the animal (e.g., "Kucing", "Anjing")
-  * **`Jenis Kelamin`**: (String) - Gender of the animal ('Jantan' or 'Betina')
+  * **`Animal_ID`**: (String) - Unique identifier for each patient (e.g., `H001`, `H002`)
+  * **`Animal_Name`**: (String) - The name of the animal
+  * **`Age`**: (Integer) - Age in months, converted and displayed in readable format (e.g., "2 tahun 3 bulan") by `format_age_display()`.
+  * **`Animal_Type`**: (String) - Type/species of the animal (e.g., "Kucing", "Anjing")
+  * **`Gender`**: (String) - Gender of the animal ('Jantan' or 'Betina')
   * **`Diagnosis`**: (String) - Medical condition of the animal
 
 -----
@@ -90,17 +90,17 @@ python <nama_file_program>.py
 
 The program will display a main menu, and you can navigate through the available operations:
 
-1.  **Report Data Hewan**: View all records, search by ID or Name, or see data statistics.
-2.  **Menambahkan Data Hewan**: Add new patient entries.
-3.  **Mengubah Data Hewan**: Edit existing patient records or perform mass diagnosis updates.
-4.  **Menghapus Data Hewan**: Delete specific patient records or clear all data.
+1.  **Report Animal Data**: View all records, search by ID or Name, or see data statistics.
+2.  **Add Animal Data**: Add new patient entries.
+3.  **Update Animal Data**: Edit existing patient records or perform mass diagnosis updates.
+4.  **Delete Animal Data**: Delete specific patient records or clear all data.
 5.  **Exit**: Terminate the program.
 
 -----
 
 ## Contribution
 
-This is a beginner-friendly open-source project! Feel free to improve the code, suggest features, or report bugs by **submitting an issue** or **creating a pull request**. Your contributions are welcome!
+This is a beginner-friendly open-source project! Feel free to improve the code, suggest features, or report bugs by submitting an issue or creating a pull request. Your contributions are welcome!
 
 -----
 
