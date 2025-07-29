@@ -73,12 +73,12 @@ def display_table(data_list):
     
     print('\n' + '=' * total_width)
     # Use the diagnosis_width variable to format the header
-    print(f'{"Animal ID":<10} | {"Animal Name":<15} | {"Age":<15} | {"Animal Type":<15} | {"Gender":<13} | {"Diagnosis":<{diagnosis_width}}')
+    print(f'{"Animal ID":<10} | {"Animal Name":<15} | {"Age":<20} | {"Animal Type":<15} | {"Gender":<13} | {"Diagnosis":<{diagnosis_width}}')
     print('=' * total_width)
     for animal in data_list:
         display_age = format_age_display(animal['Age'])
         # Use the diagnosis_width variable so data and header are aligned
-        print(f"{animal['Animal_ID']:<10} | {animal['Animal_Name']:<15} | {display_age:<15} | {animal['Animal_Type']:<15} | {animal['Gender']:<13} | {animal['Diagnosis']:<{diagnosis_width}}")
+        print(f"{animal['Animal_ID']:<10} | {animal['Animal_Name']:<15} | {display_age:<20} | {animal['Animal_Type']:<15} | {animal['Gender']:<13} | {animal['Diagnosis']:<{diagnosis_width}}")
     print('=' * total_width)
     return True
 
